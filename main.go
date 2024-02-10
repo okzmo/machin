@@ -6,6 +6,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
+	"github.com/okzmo/machin/grpc"
 )
 
 func main() {
@@ -19,5 +20,6 @@ func main() {
 		AllowCredentials: true,
 	}))
 
+	go grpc.RunGRPCServer()
 	log.Fatal(app.Listen(":3000"))
 }
